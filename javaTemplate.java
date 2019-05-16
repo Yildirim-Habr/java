@@ -50,5 +50,5 @@ public class Solution {
         return Long.parseLong(ns());
     }
 }
-
 // Collections Arrays Math
+// Vector HashSet TreeSet HashMap TreeMap ArrayDeque 
