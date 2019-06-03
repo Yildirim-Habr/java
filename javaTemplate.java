@@ -9,7 +9,7 @@ import java.util.*;
 
 public class Solution {
     static void solve() {
-        
+		
     }    
 
     public static void main(String[] args) {
@@ -20,6 +20,27 @@ public class Solution {
         err.println("Time elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
         err.close(); out.close();
     }
+
+	static int[] radixSort(int[] f){ return radixSort(f, f.length); }
+	static int[] radixSort(int[] f, int n)
+	{
+		int[] to = new int[n];
+		{
+			int[] b = new int[65537];
+			for(int i = 0;i < n;i++)b[1+(f[i]&0xffff)]++;
+			for(int i = 1;i <= 65536;i++)b[i]+=b[i-1];
+			for(int i = 0;i < n;i++)to[b[f[i]&0xffff]++] = f[i];
+			int[] d = f; f = to;to = d;
+		}
+		{
+			int[] b = new int[65537];
+			for(int i = 0;i < n;i++)b[1+(f[i]>>>16)]++;
+			for(int i = 1;i <= 65536;i++)b[i]+=b[i-1];
+			for(int i = 0;i < n;i++)to[b[f[i]>>>16]++] = f[i];
+			int[] d = f; f = to;to = d;
+		}
+		return f;
+	}
 
     static PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
     static PrintWriter err = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.err)));
