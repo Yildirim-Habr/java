@@ -17,7 +17,7 @@ public class Solution {
         int t;// = ni();
         t = 1;
         while (t-- > 0) solve(); 
-        err.println("Time elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
+        err.println("\nTime elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
         err.close(); out.close();
     }
 
