@@ -79,7 +79,7 @@ public class Solution {
 			return token.nextToken();
 		}
 		public char readChar() {
-			return Character.valueOf(read().charAt(0));
+			return Character.valueOf(read());
 		}
 		public int readInt() {
 			return Integer.parseInt(read());
