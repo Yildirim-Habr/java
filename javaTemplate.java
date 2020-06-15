@@ -11,7 +11,7 @@ import java.math.*;
 public class Solution {
     static class Task {
         public void solve() {
-        
+			
 		}
     }
     public static void main(String[] args) {        
@@ -23,28 +23,43 @@ public class Solution {
         err.println("Time elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
         err.close(); out.close();
     }
-	static class Util {
-		public int[] radixSort(int[] f){ 
-			return radixSort(f, f.length); 
+	static Util util = new Util();
+	static class Util {	
+		public void swap (int[] arr, int a, int b) {int save = arr[a]; arr[a] = arr[b]; arr[b] = save;}
+		public int[] nextPermutation (int[] arr) {
+			int n = arr.length;
+			int pvt = n - 2;
+			while (pvt >= 0 && arr[pvt] >= arr[pvt + 1]) pvt--;
+			if (pvt < 0) return arr;
+			for (int i = n - 1; i > pvt; i--) {
+				if (arr[i] > arr[pvt]) {
+					util.swap(arr, i, pvt); break;
+				}
+			}
+			for (int i = 0; i < n / 2; i++) {
+				util.swap(arr, pvt + 1, pvt + (n - 1 - i));
+			}
+			return arr;
 		}
-		private int[] radixSort(int[] f, int n) {
+		public int[] radixSort (int[] f) { 
+			int n = f.length;
 			int[] to = new int[n];
 			{
 				int[] b = new int[65537];
-				for(int i = 0;i < n;i++)b[1+(f[i]&0xffff)]++;
-				for(int i = 1;i <= 65536;i++)b[i]+=b[i-1];
-				for(int i = 0;i < n;i++)to[b[f[i]&0xffff]++] = f[i];
+				for (int i = 0;i < n;i++) b[1+(f[i]&0xffff)]++;
+				for (int i = 1;i <= 65536;i++) b[i] += b[i-1];
+				for (int i = 0;i < n;i++) to[b[f[i]&0xffff]++] = f[i];
 				int[] d = f; f = to;to = d;
 			}
 			{
 				int[] b = new int[65537];
-				for(int i = 0;i < n;i++)b[1+(f[i]>>>16)]++;
-				for(int i = 1;i <= 65536;i++)b[i]+=b[i-1];
-				for(int i = 0;i < n;i++)to[b[f[i]>>>16]++] = f[i];
+				for (int i = 0;i < n;i++) b[1+(f[i]>>>16)]++;
+				for (int i = 1;i <= 65536;i++) b[i] += b[i-1];
+				for (int i = 0;i < n;i++) to[b[f[i]>>>16]++] = f[i];
 				int[] d = f; f = to;to = d;
 			}
 			return f;
-		}	
+		}
 	}
     static InputReader in = new InputReader();
     static PrintWriter out = new PrintWriter(new BufferedWriter(new OutputStreamWriter(System.out)));
