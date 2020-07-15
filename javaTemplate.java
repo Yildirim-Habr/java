@@ -36,8 +36,8 @@ public class Solution {
 					util.swap(arr, i, pvt); break;
 				}
 			}
-			for (int i = 0; i < n / 2; i++) {
-				util.swap(arr, pvt + 1, pvt + (n - 1 - i));
+			for (int i = 0; i < (n - pvt - 1) / 2; i++) {
+				util.swap(arr, pvt + 1 + i, n - 1 - i);
 			}
 			return arr;
 		}
