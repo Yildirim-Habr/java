@@ -11,13 +11,13 @@ import java.math.*;
 public class Solution {
     static class Task {
         public void solve() {
-			
+		
 		}
     }
     public static void main(String[] args) {        
         long time = System.currentTimeMillis();
-        int t;// = in.readInt();
-        t = 1;
+        int t = in.readInt();
+        // int t = 1;
         Task solver = new Task();
         while (t-- > 0) solver.solve(); 
         err.println("Time elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
@@ -25,7 +25,7 @@ public class Solution {
     }
 	static Util util = new Util();
 	static class Util {	
-		public void swap (int[] arr, int a, int b) {int save = arr[a]; arr[a] = arr[b]; arr[b] = save;}
+		public void swap (int[] arr, int a, int b) { int save = arr[a]; arr[a] = arr[b]; arr[b] = save; }
 		public int[] nextPermutation (int[] arr) {
 			int n = arr.length;
 			int pvt = n - 2;
