@@ -16,8 +16,8 @@ public class Solution {
     }
     public static void main(String[] args) {        
         long time = System.currentTimeMillis();
-        int t = in.readInt();
-        // int t = 1;
+        // int t = in.readInt();
+        int t = 1;
         Task solver = new Task();
         while (t-- > 0) solver.solve(); 
         err.println("Time elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
