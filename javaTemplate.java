@@ -23,7 +23,7 @@ public class Solution {
         err.println("Time elapsed : " + (System.currentTimeMillis() - time) / 1000F + " s.");
         err.close(); out.close();
     }
-	static Util util = new Util();
+	static Util utils = new Util();
 	static class Util {	
 		public void swap (int[] arr, int a, int b) { int save = arr[a]; arr[a] = arr[b]; arr[b] = save; }
 		public int[] nextPermutation (int[] arr) {
