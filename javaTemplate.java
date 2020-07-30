@@ -33,11 +33,11 @@ public class Solution {
 			if (pvt < 0) return arr;
 			for (int i = n - 1; i > pvt; i--) {
 				if (arr[i] > arr[pvt]) {
-					utils.swap(arr, i, pvt); break;
+					swap(arr, i, pvt); break;
 				}
 			}
 			for (int i = 0; i < (n - pvt - 1) / 2; i++) {
-				utils.swap(arr, pvt + 1 + i, n - 1 - i);
+				swap(arr, pvt + 1 + i, n - 1 - i);
 			}
 			return arr;
 		}
