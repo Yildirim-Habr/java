@@ -48,12 +48,12 @@ static class Permutation {
 		        data = reverse(data, last + 1, data.length - 1);
 		        return true;
 		    }
-		    static boolean prev_permutation(int[] arr) {
+		    static boolean prevPermutation(int[] data) {
 			    
 			    // Find the non-increasing suffix
-				  int n = arr.length;
+				  int n = data.length;
 				  int i = n - 2;
-				  while (i >= 0 && arr[i] <= arr[i + 1]) {
+				  while (i >= 0 && data[i] <= data[i + 1]) {
 				      i--;
 				  }
 				 
@@ -64,15 +64,15 @@ static class Permutation {
 				 
 				    // Find the rightmost element that's smaller than the pivot
 				  int j = n - 1;
-				  while (j > i && arr[j] >= arr[i]) {
+				  while (j > i && data[j] >= data[i]) {
 				      j--;
 				  }
 				 
 				    // Swap the pivot with the rightmost element that's smaller than the pivot
-				  swap(arr, i, j);
+				  swap(data, i, j);
 			 
 				  // Reverse the suffix
-			      reverse(arr, i + 1, n - 1);
+			      reverse(data, i + 1, n - 1);
 			      return true;
 			}
     }
